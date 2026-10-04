@@ -1,80 +1,80 @@
-<!DOCTYPE html>
+<！doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#02040e">
-<title>宇末新X · 美丽新世界</title>
+<meta name="viewport"content="width=设备宽度，初始比例=1.0，viewport-fit=cover">
+<meta name="主题颜色"内容="#02040e">
+<title>宇末新X</title>
 <style>
-  /* ================= 基础重置 ================= */
-  *{margin:0;padding:0;box-sizing:border-box}
+/*=================基础重置=================*/
+*{边距：0；填充：0；框大小：边框}
   html,body{height:100%}
-  body{
-    font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif;
-    background:#02040e;color:#fff;overflow-x:hidden;
-    -webkit-font-smoothing:antialiased;
-    -webkit-tap-highlight-color:transparent;
+身体{
+字体系列：“复方SC”、“微软雅黑”、“Helvetica Neue”、“Helvetica”、“Arial”、“sans-serif”；
+背景：#02040e；颜色：#FFF；溢出-x：隐藏；
+-webkit-font-moothing：抗锯齿；
+-webkit-tap-highlight-color：透明；
   }
 
-  /* ================= 场景层（云海与山） ================= */
-  .scene{position:fixed;inset:0;overflow:hidden;z-index:0;pointer-events:none}
+/*=================场景层(云海与山)=================*/
+。场景{position：固定；插入：0；溢出：隐藏；z索引：0；指针事件：无}
 
-  .sky{
-    position:absolute;left:0;top:0;width:100%;height:82%;
-    background:linear-gradient(180deg,
-      #01030b 0%,
-      #050b21 14%,
-      #0a1836 28%,
-      #102b4e 42%,
-      #1a4568 55%,
-      #2c6b85 66%,
-      #63a3a6 74%,
-      #b8bda3 79%,
-      #ffd6a0 82%);
+.sky{
+位置：绝对；左侧：0；顶部：0；宽度：100%；高度：82%；
+背景：线性梯度(180度，
+#01030b 0%，
+#050b2114%，
+#0a183628%，
+#102b4e42%，
+#1a456855%，
+#2c6b8566%，
+#63a3a674%，
+#b8bda379%，
+#ffd6a082%)；
   }
 
-  /* 星星 */
-  .stars{position:absolute;inset:0 0 40% 0}
-  .star{
-    position:absolute;background:#fff;border-radius:50%;
-    box-shadow:0 0 6px rgba(190,225,255,.9);
-    animation:twinkle var(--d) ease-in-out infinite alternate;
+/* 星星 */
+.stars{position:absolute；插入：0040%0}
+.Star{
+位置：绝对；背景：#FFF；边界半径：50%；
+box-shadow:006px rgba(190,225,255,.9);
+动画：闪烁变量(--d)缓进缓出无限交替；
   }
-  @keyframes twinkle{from{opacity:.15;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
+@keyframes 闪烁{从{不透明度：.15；变换：比例(.8)}到{不透明度：1；变换：比例(1)}}
 
-  /* 地平线光晕 */
-  .horizon-glow{
-    position:absolute;left:0;bottom:18%;width:100%;height:26vh;
-    background:radial-gradient(ellipse at 50% 100%,
-      rgba(255,203,140,.55) 0%,
-      rgba(255,160,110,.22) 32%,
-      rgba(120,190,220,.10) 60%,
-      transparent 78%);
-    filter:blur(6px);
-    animation:breath 7s ease-in-out infinite;
+/* 地平线光晕 */
+.horizon-glow{
+位置：绝对；左侧：0；底部：18%；宽度：100%；高度：26vh；
+背景：径向梯度(50%100%时为椭圆，
+rgba(255，203，140，.55)0%，
+rgba(255，160，110，.22)32%，
+rgba(120,190,220,.10)60%，
+透明78%)；
+滤镜：模糊(6 PX)；
+动画：呼吸7s轻松进出无限；
   }
-  @keyframes breath{0%,100%{opacity:.85}50%{opacity:1}}
+@keyframes 呼吸{0%，100%{不透明度：.85}50%{不透明度：1}}
 
-  /* 云海动画 */
-  .cloudband{position:absolute;inset:0;overflow:hidden}
-  .cloud{
-    position:absolute;left:0;
-    width:var(--w);
+/* 云海动画 */
+。cloudband{position:absolute；inset:0；overflow:hidden}
+.cloud{
+位置：绝对；左：0；
+宽度：var(-w)；
     height:calc(var(--w) * .3);
-    border-radius:50%;
-    background:radial-gradient(ellipse at 50% 55%,
-      rgba(255,255,255,.95) 0%,
-      rgba(255,255,255,.42) 42%,
-      rgba(255,255,255,0) 74%);
-    filter:blur(var(--blur));
-    opacity:var(--op);
+边界半径：50%；
+背景：径向梯度(50%55%，
+rgba(255,255,255,.95)0%，
+rgba(255，255，255，.42)42%，
+rgba(255,255,255,0)74%)；
+滤镜：模糊(var(-Blur))；
+不透明度：var(--op)；
     animation:drift var(--dur) linear infinite;
     animation-delay:var(--delay);
-    will-change:transform;
+will-change:transform；
   }
-  @keyframes drift{
-    from{transform:translateX(-45vw) translateZ(0)}
-    to{transform:translateX(145vw) translateZ(0)}
+@keyframes 偏移{
+来自{transform:translateX(-45vw)translateZ(0)}
+到{transform:translateX(145vw)translateZ(0)}
   }
 
   /* 山体 */
@@ -360,19 +360,19 @@
         C520,190 550,290 640,300
         C730,310 780,180 880,175
         C980,170 1010,290 1100,300
-C1180，3081230，2301310，245
-C1370，2561410，2901440，300
-L1440，400Z"/>
-<路径填充="#040a14"不透明度=".9"d="
-M0，400L0，352
-C120，330200，318300，342
-C400366480300600312
-C720，324800，352900，344
-C1010，3351100，3001220，322
-C1330，3421400，3561440，360
-L1440，400Z"/>
-</svg>
-</div>
+        C1180,308 1230,230 1310,245
+        C1370,256 1410,290 1440,300
+        L1440,400 Z"/>
+      <path fill="#040a14" opacity=".9" d="
+        M0,400 L0,352
+        C120,330 200,318 300,342
+        C400,366 480,300 600,312
+        C720,324 800,352 900,344
+        C1010,335 1100,300 1220,322
+        C1330,342 1400,356 1440,360
+        L1440,400 Z"/>
+    </svg>
+  </div>
 
 <!-- 海 -->
 <div class="sea"></div>
@@ -390,7 +390,7 @@ L1440，400Z"/>
 </h1>
 </div>
 <div class="divider"></div>
-<p class="<标准">美丽新世界·真心好</p>
+<p class="标准">好爱心您！☺️真心好</p>
 </header>
 
 <! -- 网络时间 -->

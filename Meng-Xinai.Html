@@ -1,10 +1,6 @@
 <！doctype html>
 <html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<元名称=“视口”内容=“宽度=设备宽度，初始比例=1.0，viewport-fit=cover">
-<meta name="主题颜色"内容="#02040e">
-<title>宇末新X</title>
+<head><meta charset="UTF-8"><元名称="视口"内容="宽度=设备宽度，初始比例=1.0，viewport-fit=cover"><元名称="主题颜色"内容="#02040e"><title>宇末新X·</title>
 <style>
 *{边距：0；填充：0；框大小：边框}
         html,body{height:100%}
@@ -456,21 +452,21 @@ rgba(255，255，255，.42)42%，
     (function () {
         "use strict";
 
-/* ---------- 星星 ---------- */
-(函数星(){
-var box=document.getElementById(“stars”)；
-if(！box)返回；
-var n=window.innerWidth<600？60:130；
-var buf=""；
-for(var i=0；i<n；i++){
-var s=(Math.random()*1.8+0.6).toFixed(2)；
-BUF+='<i class="star"style="'+
+        /* ---------- 星星 ---------- */
+        (function stars() {
+            var box = document.getElementById("stars");
+            if (!box) return;
+            var n = window.innerWidth < 600 ? 60 : 130;
+            var buf = "";
+            for (var i = 0; i < n; i++) {
+                var s = (Math.random() * 1.8 + 0.6).toFixed(2);
+                buf += '<i class="star" style="' +
                     'left:' + (Math.random() * 100).toFixed(2) + '%;' +
                     'top:' + (Math.random() * 58).toFixed(2) + '%;' +
                     'width:' + s + 'px;height:' + s + 'px;' +
                     '--d:' + (Math.random() * 3 + 1.6).toFixed(2) + 's;' +
                     'animation-delay:-' + (Math.random() * 4).toFixed(2) + 's;' +
-'不透明度：'+(Math.Random()*0.6+0.3).toFixed(2)+'"></i>'；
+'不透明度：'+(Math.random()*0.6+0.3).toFixed(2)+'"></i>'；
             }
 box.innerHTML=buf；
         })();

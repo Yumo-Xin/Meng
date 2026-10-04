@@ -1,80 +1,80 @@
-<！doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"content="width=设备宽度，初始比例=1.0，viewport-fit=cover">
-<meta name="主题颜色"内容="#02040e">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#02040e">
 <title>宇末新X</title>
 <style>
-/*=================基础重置=================*/
-*{边距：0；填充：0；框大小：边框}
+  /* ================= 基础重置 ================= */
+  *{margin:0;padding:0;box-sizing:border-box}
   html,body{height:100%}
-身体{
-字体系列：“复方SC”、“微软雅黑”、“Helvetica Neue”、“Helvetica”、“Arial”、“sans-serif”；
-背景：#02040e；颜色：#FFF；溢出-x：隐藏；
--webkit-font-moothing：抗锯齿；
--webkit-tap-highlight-color：透明；
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif;
+    background:#02040e;color:#fff;overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    -webkit-tap-highlight-color:transparent;
   }
 
-/*=================场景层(云海与山)=================*/
-。场景{position：固定；插入：0；溢出：隐藏；z索引：0；指针事件：无}
+  /* ================= 场景层（云海与山） ================= */
+  .scene{position:fixed;inset:0;overflow:hidden;z-index:0;pointer-events:none}
 
-.sky{
-位置：绝对；左侧：0；顶部：0；宽度：100%；高度：82%；
-背景：线性梯度(180度，
-#01030b 0%，
-#050b2114%，
-#0a183628%，
-#102b4e42%，
-#1a456855%，
-#2c6b8566%，
-#63a3a674%，
-#b8bda379%，
-#ffd6a082%)；
+  .sky{
+    position:absolute;left:0;top:0;width:100%;height:82%;
+    background:linear-gradient(180deg,
+      #01030b 0%,
+      #050b21 14%,
+      #0a1836 28%,
+      #102b4e 42%,
+      #1a4568 55%,
+      #2c6b85 66%,
+      #63a3a6 74%,
+      #b8bda3 79%,
+      #ffd6a0 82%);
   }
 
-/* 星星 */
-.stars{position:absolute；插入：0040%0}
-.Star{
-位置：绝对；背景：#FFF；边界半径：50%；
-box-shadow:006px rgba(190,225,255,.9);
-动画：闪烁变量(--d)缓进缓出无限交替；
+  /* 星星 */
+  .stars{position:absolute;inset:0 0 40% 0}
+  .star{
+    position:absolute;background:#fff;border-radius:50%;
+    box-shadow:0 0 6px rgba(190,225,255,.9);
+    animation:twinkle var(--d) ease-in-out infinite alternate;
   }
-@keyframes 闪烁{从{不透明度：.15；变换：比例(.8)}到{不透明度：1；变换：比例(1)}}
+  @keyframes twinkle{from{opacity:.15;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
 
-/* 地平线光晕 */
-.horizon-glow{
-位置：绝对；左侧：0；底部：18%；宽度：100%；高度：26vh；
-背景：径向梯度(50%100%时为椭圆，
-rgba(255，203，140，.55)0%，
-rgba(255，160，110，.22)32%，
-rgba(120,190,220,.10)60%，
-透明78%)；
-滤镜：模糊(6 PX)；
-动画：呼吸7s轻松进出无限；
+  /* 地平线光晕 */
+  .horizon-glow{
+    position:absolute;left:0;bottom:18%;width:100%;height:26vh;
+    background:radial-gradient(ellipse at 50% 100%,
+      rgba(255,203,140,.55) 0%,
+      rgba(255,160,110,.22) 32%,
+      rgba(120,190,220,.10) 60%,
+      transparent 78%);
+    filter:blur(6px);
+    animation:breath 7s ease-in-out infinite;
   }
-@keyframes 呼吸{0%，100%{不透明度：.85}50%{不透明度：1}}
+  @keyframes breath{0%,100%{opacity:.85}50%{opacity:1}}
 
-/* 云海动画 */
-。cloudband{position:absolute；inset:0；overflow:hidden}
-.cloud{
-位置：绝对；左：0；
-宽度：var(-w)；
+  /* 云海动画 */
+  .cloudband{position:absolute;inset:0;overflow:hidden}
+  .cloud{
+    position:absolute;left:0;
+    width:var(--w);
     height:calc(var(--w) * .3);
-边界半径：50%；
-背景：径向梯度(50%55%，
-rgba(255,255,255,.95)0%，
-rgba(255，255，255，.42)42%，
-rgba(255,255,255,0)74%)；
-滤镜：模糊(var(-Blur))；
-不透明度：var(--op)；
+    border-radius:50%;
+    background:radial-gradient(ellipse at 50% 55%,
+      rgba(255,255,255,.95) 0%,
+      rgba(255,255,255,.42) 42%,
+      rgba(255,255,255,0) 74%);
+    filter:blur(var(--blur));
+    opacity:var(--op);
     animation:drift var(--dur) linear infinite;
     animation-delay:var(--delay);
-will-change:transform；
+    will-change:transform;
   }
-@keyframes 偏移{
-来自{transform:translateX(-45vw)translateZ(0)}
-到{transform:translateX(145vw)translateZ(0)}
+  @keyframes drift{
+    from{transform:translateX(-45vw) translateZ(0)}
+    to{transform:translateX(145vw) translateZ(0)}
   }
 
   /* 山体 */
@@ -374,148 +374,148 @@ will-change:transform；
     </svg>
   </div>
 
-<!-- 海 -->
-<div class="sea"></div>
+  <!-- 海 -->
+  <div class="sea"></div>
 </div>
 
-<! -- ========== 内容 ========== -->
+<!-- ========== 内容 ========== -->
 <main class="content">
 
-<！--Logo设计区-->
-<header class="brand">
-<div class="logo-wrap">
-<div class="halo"></div>
-<h1class="logo">
-<span class="cn">宇末新</span><span class="x">X</span>
-</h1>
-</div>
-<div class="divider"></div>
-<p class="标准">好爱心您！☺️真心好</p>
-</header>
+  <!-- Logo 设计区 -->
+  <header class="brand">
+    <div class="logo-wrap">
+      <div class="halo"></div>
+      <h1 class="logo">
+        <span class="cn">宇末新</span><span class="x">X</span>
+      </h1>
+    </div>
+    <div class="divider"></div>
+    <p class="tagline"> 好爱心您！☺️ · 真心好 </p>
+  </header>
 
-<! -- 网络时间 -->
-<section class="clock-card"aria-label="网络时间">
+  <!-- 网络时间 -->
+  <section class="clock-card" aria-label="网络时间">
     <div class="clock-time" id="clockTime">--:--:--</div>
-<div class="clock-date"id="clockDate">----</div>
-<div class="clock-label"><i class="dot"></i>网络时间·实时同步</div>
-</section>
+    <div class="clock-date" id="clockDate">————</div>
+    <div class="clock-label"><i class="dot"></i>网络时间 · 实时同步</div>
+  </section>
 
-<! -- 链接区（已补充小红书） -->
-<nav class="links"aria-label="社交链接">
+  <!-- 链接区（已补充小红书） -->
+  <nav class="links" aria-label="社交链接">
     <!-- QQ -->
-<a class="link qq"href="https://qm.qq.com/q/aPUYQNFxLi"target="_blank"rel="noopener noreferrer">
-<span class="ico">
-<svg Viewbox="002424"fill="CURRENTCOLOR"aria-hidden="true">
+    <a class="link qq" href="https://qm.qq.com/q/aPUYQNFxLi" target="_blank" rel="noopener noreferrer">
+      <span class="ico">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M12 2.2c-3.1 0-5.2 2.4-5.2 5.6 0 .5 0 1 .1 1.4-.9 1.1-1.9 2.7-1.9 4.3 0 .9.4 1.5 1 1.7.5.2 1-.1 1.4-.6.2.5.5 1 .9 1.4-.6.3-1 .7-1 1.2 0 .9 1.6 1.5 3.7 1.5s3.7-.6 3.7-1.5c0-.5-.4-.9-1-1.2.4-.4.7-.9.9-1.4.4.5.9.8 1.4.6.6-.2 1-.8 1-1.7 0-1.6-1-3.2-1.9-4.3.1-.4.1-.9.1-1.4 0-3.2-2.1-5.6-5.2-5.6z"/>
-</svg>
-</span>
-<span class="meta"><strong>QQ</strong><em>点击打开链接</em></span>
-</a>
+        </svg>
+      </span>
+      <span class="meta"><strong>QQ</strong><em>点击打开链接</em></span>
+    </a>
 
-<! -- 抖音 -->
-<a class="link dy"href="https://v.douyin.com/OeZSOlE5gDk/"target="_blank"rel="noopener noreferrer">
-<span class="ico">
-<svg Viewbox="002424"fill="CURRENTCOLOR"aria-hidden="true">
-<路径d="M16.6 2h-2.9v12.6a2.42.401 1-2-2.4V9.3a5.35.30104.95.3V9.2a6.460003.61.1V7.4a3.73.00 1-3.6-3.7V2z"/>
-</svg>
-</span>
-<span class="meta"><strong>抖音</strong><em>点击打开链接</em></span>
-</a>
+    <!-- 抖音 -->
+    <a class="link dy" href="https://v.douyin.com/OeZSOlE5gDk/" target="_blank" rel="noopener noreferrer">
+      <span class="ico">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M16.6 2h-2.9v12.6a2.4 2.4 0 1 1-2-2.4V9.3a5.3 5.3 0 1 0 4.9 5.3V9.2a6.4 6.4 0 0 0 3.6 1.1V7.4a3.7 3.7 0 0 1-3.6-3.7V2z"/>
+        </svg>
+      </span>
+      <span class="meta"><strong>抖音</strong><em>点击打开链接</em></span>
+    </a>
 
-<! -- 微博 -->
-<a class="link wb"href="https://weibo.com/u/8000934642"target="_blank"rel="noopener noreferrer">
-<span class="ico">
-<svg Viewbox="002424"fill="none"stroke="CURRENTCOLOR"stroke-width="1.7"
-stroke-linecap="round"aria-hidden="true">
+    <!-- 微博 -->
+    <a class="link wb" href="https://weibo.com/u/8000934642" target="_blank" rel="noopener noreferrer">
+      <span class="ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+             stroke-linecap="round" aria-hidden="true">
           <ellipse cx="10" cy="14" rx="6.4" ry="5"/>
-<圆形cx="10"cy="14"r="2.1"fill="CURRENTCOLOR"stroke="none"/>
-<路径d="M17.24.6c2.4304.32.4.3"/>
-<路径d="M16.68.2c.901.6.711.6"/>
-</svg>
-</span>
-<span class="meta"><strong>微博</strong><em>点击打开链接</em></span>
-</a>
+          <circle cx="10" cy="14" r="2.1" fill="currentColor" stroke="none"/>
+          <path d="M17.2 4.6c2.4 0 4.3 2 4.3 4.3"/>
+          <path d="M16.6 8.2c.9 0 1.6.7 1.6 1.6"/>
+        </svg>
+      </span>
+      <span class="meta"><strong>微博</strong><em>点击打开链接</em></span>
+    </a>
 
-<! -- 小红书（已修复补全） -->
-<a class="link XHS"href="https://xhslink.cn/o/5myiPhMk9pr"target="_blank"rel="noopener noreferrer">
-<span class="ico">
-<svg Viewbox="002424"fill="none"stroke="CURRENTCOLOR"stroke-width="1.6"
-stroke-linecap="round"stroke-linejoin="round"aria-hidden="true">
-<rect x="3"y="3"width="18"height="18"rx="5"/>
-<path d="M88h8M812h8M816h5"/>
-</svg>
-</span>
-<span class="meta"><strong>小红书</strong><em>点击打开链接</em></span>
-</a>
-</nav>
+    <!-- 小红书（已修复补全） -->
+    <a class="link xhs" href="https://xhslink.cn/o/5myiPhMk9pr" target="_blank" rel="noopener noreferrer">
+      <span class="ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <path d="M8 8h8M8 12h8M8 16h5"/>
+        </svg>
+      </span>
+      <span class="meta"><strong>小红书</strong><em>点击打开链接</em></span>
+    </a>
+  </nav>
 
-<页脚班级="页脚">宇末新X·设计修复更新中</footer>
+  <footer class="footer">宇末新X · 设计修复更新中</footer>
 </main>
 
 <script>
-(函数(){
-”使用严格”；
+(function () {
+  "use strict";
 
-/* ---------- 星星生成 ---------- */
-(函数星(){
-var box=document.getElementById(“stars”)；
-if(！box)返回；
-var n=窗内宽度<600？60:130；
-var buf=""；
-for(var i=0；i<n；i++){
-var s=(Math.random()*1.8+0.6).toFixed(2)；
-BUF+='<i class="star"style="'+
+  /* ---------- 星星生成 ---------- */
+  (function stars() {
+    var box = document.getElementById("stars");
+    if (!box) return;
+    var n = window.innerWidth < 600 ? 60 : 130;
+    var buf = "";
+    for (var i = 0; i < n; i++) {
+      var s = (Math.random() * 1.8 + 0.6).toFixed(2);
+      buf += '<i class="star" style="' +
         'left:' + (Math.random() * 100).toFixed(2) + '%;' +
         'top:' + (Math.random() * 58).toFixed(2) + '%;' +
         'width:' + s + 'px;height:' + s + 'px;' +
         '--d:' + (Math.random() * 3 + 1.6).toFixed(2) + 's;' +
         'animation-delay:-' + (Math.random() * 4).toFixed(2) + 's;' +
-'不透明度：'+(Math.Random()*0.6+0.3).toFixed(2)+'"></i>'；
+        'opacity:' + (Math.random() * 0.6 + 0.3).toFixed(2) + '"></i>';
     }
-box.innerHTML=buf；
+    box.innerHTML = buf;
   })();
 
-/* ---------- 云海生成 ---------- */
-(函数云(){
-var band=document.getElementById("cloud band")；
-if(！band)返回；
-var isMobile=window.innerWidth<700；
-var n=isMobile？8:14；
-var buf=""；
-for(var i=0；i<n；i++){
-var w=(isMobile？130:170)+Math.random()*(isMobile？200:320)；
-var top=50+Math.random()*28；
-var dur=70+Math.random()*90；
-var延迟=-数学随机()*dur；
-var op=0.16+Math.random()*0.34；
-var模糊=14+Math.random()*22；
-BUF+='<span class="cloud"style="'+
+  /* ---------- 云海生成 ---------- */
+  (function clouds() {
+    var band = document.getElementById("cloudband");
+    if (!band) return;
+    var isMobile = window.innerWidth < 700;
+    var n = isMobile ? 8 : 14;
+    var buf = "";
+    for (var i = 0; i < n; i++) {
+      var w = (isMobile ? 130 : 170) + Math.random() * (isMobile ? 200 : 320);
+      var top = 50 + Math.random() * 28;
+      var dur = 70 + Math.random() * 90;
+      var delay = -Math.random() * dur;
+      var op = 0.16 + Math.random() * 0.34;
+      var blur = 14 + Math.random() * 22;
+      buf += '<span class="cloud" style="' +
         '--w:' + w.toFixed(0) + 'px;' +
         'top:' + top.toFixed(1) + '%;' +
-'--dur：'+dur.toFixed(1)+'s；'+
+        '--dur:' + dur.toFixed(1) + 's;' +
         '--delay:' + delay.toFixed(1) + 's;' +
-'--op：'+op.toFixed(2)+'；'+
+        '--op:' + op.toFixed(2) + ';' +
         '--blur:' + blur.toFixed(0) + 'px"></span>';
     }
-band.innerHTML=buf；
+    band.innerHTML = buf;
   })();
 
-/* ---------- 网络时间（本地实时同步） ---------- */
-(功能时钟(){
-var Tel=document.getElementById("clockTime")；
-var Del=document.getElementById("clockDate")；
-if(！Tel||！Del)返回；
+  /* ---------- 网络时间（本地实时同步） ---------- */
+  (function clock() {
+    var tEl = document.getElementById("clockTime");
+    var dEl = document.getElementById("clockDate");
+    if (!tEl || !dEl) return;
 
-var周=["星期日"，"星期一"，"星期二"，"星期三"，"星期四"，"星期五"，"星期六"]；
-函数盘(v){return v<10？"0"+v：""+v；}
+    var WEEK = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+    function pad(v) { return v < 10 ? "0" + v : "" + v; }
 
-函数tick(){
-var d=新日期()；
-Tel.TextContent=pad(d.getHours())+"："+pad(d.getMinutes())+"："+pad(d.getSeconds())；
-del.textContent=d.getFullYear()+"年"+(d.getMonth()+1)+"月"+d.GETDATE()+"日"+WEEK[d.getday()]；
+    function tick() {
+      var d = new Date();
+      tEl.textContent = pad(d.getHours()) + ":" + pad(d.getMinutes()) + ":" + pad(d.getSeconds());
+      dEl.textContent = d.getFullYear() + "年" + (d.getMonth() + 1) + "月" + d.getDate() + "日　" + WEEK[d.getDay()];
     }
-滴答声()；
-setInterval(tick，1000)；
+    tick();
+    setInterval(tick, 1000);
   })();
 
 })();
